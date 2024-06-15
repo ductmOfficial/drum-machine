@@ -7,3 +7,48 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.btn-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+}
+
+/* Additional custom styles for further customization */
+
+/* Adjust background color of specific elements */
+#drum-machine {
+  background-color: #343a40; /* Dark gray background */
+}
+
+/* Example of adjusting text color */
+.text-light {
+  color: #f8f9fa; /* Light gray text */
+}
+
+/* Example of adjusting button color */
+.btn-dark {
+  background-color: #343a40; /* Dark gray button */
+  border-color: #343a40; /* Dark gray border */
+}
+
+/* Example of adjusting button hover color */
+.btn-dark:hover {
+  background-color: #23272b; /* Darker hover color */
+}
+
+/* Custom styles for checkboxes */
+.custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #007bff; /* Blue color for checked state */
+}
+
+/* Custom styles for sliders */
+.custom-range::-webkit-slider-runnable-track {
+  background-color: #6c757d; /* Gray track */
+}
+
+.custom-range::-webkit-slider-thumb {
+  background-color: #007bff; /* Blue thumb */
+}
