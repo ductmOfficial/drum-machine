@@ -70,10 +70,8 @@ drum-machine
 │   ├── index.html
 ├── src
 │   ├── components
-│   │   ├── DrumMachine.js
 │   │   ├── DrumPad.js
-│   │   ├── Display.js
-│   │   └── DrumMachine.css
+│   │   ├── PadBank.js
 │   ├── App.js
 │   ├── index.css
 │   ├── index.js
@@ -83,10 +81,8 @@ drum-machine
 
 - **public/index.html**: The main HTML file for the app.
 - **src/index.js**: The entry point for the React application.
-- **src/components/DrumMachine.js**: The main component that contains the drum pads and the display.
 - **src/components/DrumPad.js**: The component representing each drum pad.
-- **src/components/Display.js**: The component displaying the name of the sound being played.
-- **src/components/DrumMachine.css**: The CSS file for styling the drum machine.
+- **src/components/PadBank.js**: The main component that contains the drum pads.
 
 ## License
 

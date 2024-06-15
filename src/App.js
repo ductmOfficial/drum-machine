@@ -1,5 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useEffect, useState } from "react";
+
+// project imports
+import "./App.css";
+import PadBank from "./components/PadBank";
 
 const bankOneSounds = [
   {
@@ -114,61 +118,6 @@ const bankTwoSounds = [
     url: "https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3",
   },
 ];
-
-const DrumPad = ({ clipId, clipUrl, keyCode, keyTrigger, updateDisplay }) => {
-  const audioRef = useRef(null);
-
-  const playSound = useCallback(() => {
-    const sound = audioRef.current;
-    if (sound) {
-      sound.currentTime = 0;
-      sound.play();
-      updateDisplay(clipId.replace(/-/g, " "));
-    }
-  }, [clipId, updateDisplay]);
-
-  useEffect(() => {
-    const handleKeyPress = (e) => {
-      if (e.keyCode === keyCode) {
-        playSound();
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyPress);
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyPress);
-    };
-  }, [keyCode, playSound]);
-
-  return (
-    <button
-      className="btn btn-dark btn-lg drum-pad"
-      id={clipId}
-      onClick={playSound}
-    >
-      {keyTrigger}
-      <audio className="clip" ref={audioRef} id={keyTrigger} src={clipUrl} />
-    </button>
-  );
-};
-
-const PadBank = ({ sounds, power, updateDisplay }) => {
-  return (
-    <div className="btn-grid">
-      {sounds.map((sound) => (
-        <DrumPad
-          key={sound.id}
-          clipUrl={power ? sound.url : "#"}
-          clipId={sound.id}
-          keyCode={sound.keyCode}
-          keyTrigger={sound.keyTrigger}
-          updateDisplay={updateDisplay}
-        />
-      ))}
-    </div>
-  );
-};
 
 const App = () => {
   const [power, setPower] = useState(true);
